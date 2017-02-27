@@ -1,0 +1,25 @@
+page-home {
+
+    svg {
+        display: block;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .left, .shield {
+        fill:#DD0031;
+    }
+    .right {
+        fill:#C3002F;
+    }
+    .a {
+        fill:#FFFFFF;
+    }
+
+    .hex {
+        cursor: pointer;
+        fill-opacity: 0.4;
+        stroke: #000;
+        stroke-width: 2;
+    }
+
+}
