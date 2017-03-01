@@ -14,17 +14,17 @@ export class HomePage implements OnInit {
   smallScale: boolean = false;
   hexTile = new Hex;
 
-  constructor(public navCtrl: NavController) {
-    
-  }
+  constructor(public navCtrl: NavController) {}
 
   ngOnInit() {
-      this.hexTile.setPoints([0,35]);
+      this.hexTile.setPoints([0,100]);
       TweenMax.set(this.hex.nativeElement, {
         attr: {
-          points: this.hexTile.svgPoints(),
-          fill: "#fff"
+          points: this.hexTile.svgPoints()
         },        
+        fill: "blue",
+        brightness: 0,
+        fill-opacity: 0.4,
         x: 150,
         y: 150
       });
