@@ -11,8 +11,10 @@ export class HomePage implements OnInit {
   @ViewChild('left') left: ElementRef;
   @ViewChild('right') right: ElementRef;
   @ViewChild('hex') hex: ElementRef;
+  @ViewChild('hex2') hex2: ElementRef;
   smallScale: boolean = false;
   hexTile = new Hex;
+  tile2 = new Hex;
 
   constructor(public navCtrl: NavController) {}
 
@@ -22,11 +24,16 @@ export class HomePage implements OnInit {
         attr: {
           points: this.hexTile.svgPoints()
         },        
-        fill: "blue",
-        brightness: 0,
-        fill-opacity: 0.4,
         x: 150,
         y: 150
+      });
+      this.tile2.setPoints([0,100]);
+      TweenMax.set(this.hex2.nativeElement, {
+        attr: {
+          points: this.tile2.svgPoints()
+        },        
+        x: 150-this.hexTile.topRight()[0],
+        y: 150-this.hexTile.origin()[1]
       });
   }
 
@@ -66,6 +73,10 @@ export class HomePage implements OnInit {
     }
 
     this.smallScale = !this.smallScale;
+  }
+
+  panEvent($event) {
+    console.log($event);
   }
 
 }

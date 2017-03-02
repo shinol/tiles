@@ -15,9 +15,11 @@ page-home {
         fill:#FFFFFF;
     }
 
+    ion-scroll { white-space: nowrap; }
+
     .hex {
         cursor: pointer;
-        fill-opacity: 1;
+        fill-opacity: 0;
         stroke: #000;
         stroke-width: 2;
     }

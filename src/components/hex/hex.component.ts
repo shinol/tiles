@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'hex-tile',
-    templateUrl: './hex.component.html',
-    styleUrls: ['./hex.component.css']
+    templateUrl: './hex.component.html'
 })
 export class HexComponent implements OnInit {
     private width: number;

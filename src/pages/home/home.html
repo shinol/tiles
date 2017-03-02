@@ -7,11 +7,12 @@
 </ion-header>
 
 <ion-content padding>
+      <svg width="900" height="900" (pan)="panEvent($event)">
+        <svg:polygon #hex class="hex"></svg:polygon>
+        <svg:polygon #hex2 class="hex"></svg:polygon>
 
-  <svg width="900" height="900">
-    
-    <svg:polygon (click)="toggleScale()" #hex class="hex"></svg:polygon>
-    
-  </svg>
+      </svg>
+
+
 
 </ion-content>
