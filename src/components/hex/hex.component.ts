@@ -1,33 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Tile } from '../../models/tile';
 
 @Component({
-    selector: 'hex-tile',
+    selector: '[hex-tile]',
     templateUrl: './hex.component.html'
 })
-export class HexComponent implements OnInit {
-    private width: number;
-    private x: number;
-    private points: Array<Array<number>>; // [[1,2], [2,3], [3,4]] etc...
+export class HexComponent implements AfterViewInit {
 
-    constructor(startX:number = 0, width: number = 50) {
-        this.width = width;
-        this.x = startX;
-        this.setPoints([startX, width/2]);
+    // @Input() width: number;
+    // @Input() height: number;
+    // @Input()  x: number;
+    // @Input() y: number;
+    // @Input() horizontal: boolean;
+    @Input() meta: Tile;
+    @Input() tile: Array<number>;
+    @ViewChild('hex') hex: ElementRef;
+
+    constructor() {}
+
+    ngAfterViewInit() {
+        // console.log(this.meta, this.tile, this.hex);
+        TweenMax.set(this.hex.nativeElement, {
+            attr: {
+            points: this.setPointsHorizontal()
+            },        
+            x: this.tile[0],
+            y: this.tile[1]
+        });
      }
 
-    ngOnInit() { }
-
-    setPoints(left: Array<number>) {
+    setPointsHorizontal() {
         // Use the y attribut to determine height and width
-        const height: number = 2 * left[1];
-        const width: number = 2 * left[1];
+        const quarter = Math.floor(this.meta.width * 0.25);
+        const threeQuarter = Math.floor(this.meta.width * 0.75);
+        let halfHeight: number; // start and end of "flat-top" tile
+        let theHeight: number;
+        if (this.meta.height) {
+            halfHeight = Math.floor(this.meta.height / 2);
+            theHeight = this.meta.height;
+        } else {
+            halfHeight = Math.floor(this.meta.width / 2);
+            theHeight = this.meta.width;
+        }
+        
+        let outStr: string;
+        outStr = '0,' + halfHeight.toString() + ' ';
+        outStr += quarter.toString() + ',0' + ' ';
+        outStr += threeQuarter.toString() + ',0' + ' ';
+        outStr += this.meta.width.toString() + ',' + halfHeight.toString() + ' ';
+        outStr += threeQuarter.toString() + ',' + theHeight + ' ';
+        outStr += quarter.toString() + ',' + theHeight + ' ';
 
-        // flat top hex, left and right points are at max width
-        this.points[0] = [width, left[1]];
-        this.points[1] = [width * 0.77, height];
-        this.points[2] = [width * 0.27, height];
-        this.points[3] = [0, left[1]];
-        this.points[4] = [width * 0.27, 0]
-        this.points[5] = [width * 0.77, 0]
+        return outStr;
     }
 }

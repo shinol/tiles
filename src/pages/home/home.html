@@ -6,13 +6,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-      <svg width="900" height="900" (pan)="panEvent($event)">
-        <svg:polygon #hex class="hex"></svg:polygon>
-        <svg:polygon #hex2 class="hex"></svg:polygon>
-
+<ion-content  (click)="panEvent($event)">
+      <svg width="900" height="900">
+        <g hex-tile [tile]="tile" [meta]="meta" *ngFor="let tile of tiles"></g>
       </svg>
-
-
-
 </ion-content>
