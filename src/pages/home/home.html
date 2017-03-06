@@ -7,7 +7,14 @@
 </ion-header>
 
 <ion-content  (click)="panEvent($event)">
-      <svg width="900" height="900">
-        <g hex-tile [tile]="tile" [meta]="meta" *ngFor="let tile of tiles"></g>
-      </svg>
+    <!--<img class="bottomMap" src="./assets/mymap.svg" alt="map" width="700" height="950">-->
+    
+    <svg class="topMap" width="900" height="900">
+      <defs>
+        <pattern id="image" patternUnits="userSpaceOnUse" height="100" width="100">
+          <image x="0" y="0" height="100" width="100" xlink:href="./assets/hextile1.png"></image>
+        </pattern>
+      </defs>
+      <g hex-tile [tile]="tile" [meta]="meta" *ngFor="let tile of tiles"></g>
+    </svg>
 </ion-content>

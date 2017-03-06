@@ -7,11 +7,6 @@ import { Tile } from '../../models/tile';
 })
 export class HexComponent implements AfterViewInit {
 
-    // @Input() width: number;
-    // @Input() height: number;
-    // @Input()  x: number;
-    // @Input() y: number;
-    // @Input() horizontal: boolean;
     @Input() meta: Tile;
     @Input() tile: Array<number>;
     @ViewChild('hex') hex: ElementRef;
@@ -22,7 +17,8 @@ export class HexComponent implements AfterViewInit {
         // console.log(this.meta, this.tile, this.hex);
         TweenMax.set(this.hex.nativeElement, {
             attr: {
-            points: this.setPointsHorizontal()
+            points: this.setPointsHorizontal(),
+            fill: "url(#image)"
             },        
             x: this.tile[0],
             y: this.tile[1]

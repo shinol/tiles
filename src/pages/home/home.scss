@@ -4,7 +4,16 @@ page-home {
         display: block;
         max-width: 900px;
         margin: 0 auto;
-        background-color: lavender;
+    }
+
+    .bottomMap {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .topMap {
+        position: absolute;
     }
 
     ion-scroll { white-space: nowrap; }

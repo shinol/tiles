@@ -17,6 +17,7 @@ export class HomePage implements AfterViewInit {
   constructor(public navCtrl: NavController) {}
 
   ngAfterViewInit() {
+    // HEXOGRAPHER set to width=87 height=88 for the following to work
     this.meta = {
       width: 50,
       height: 50,
