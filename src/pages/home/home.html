@@ -6,9 +6,24 @@
   </ion-navbar>
 </ion-header>
 
+<<<<<<< HEAD
 <ion-content padding>
       <svg width="900" height="900" (pan)="panEvent($event)">
         <svg:polygon #hex class="hex"></svg:polygon>
         <svg:polygon #hex2 class="hex"></svg:polygon>
       </svg>
 </ion-content>
+=======
+<ion-content  (click)="panEvent($event)">
+    <!--<img class="bottomMap" src="./assets/mymap.svg" alt="map" width="700" height="950">-->
+    
+    <svg class="topMap" width="900" height="900">
+      <defs>
+        <pattern id="image" patternUnits="userSpaceOnUse" height="100" width="100">
+          <image x="0" y="0" height="100" width="100" xlink:href="./assets/hextile1.png"></image>
+        </pattern>
+      </defs>
+      <g hex-tile [tile]="tile" [meta]="meta" *ngFor="let tile of tiles"></g>
+    </svg>
+</ion-content>
+>>>>>>> 8b8744ab870db7b9b2c60d76a6a158bcad30fac9

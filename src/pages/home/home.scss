@@ -4,16 +4,16 @@ page-home {
         display: block;
         max-width: 900px;
         margin: 0 auto;
-        background-color: lavender;
     }
-    .left, .shield {
-        fill:#DD0031;
+
+    .bottomMap {
+        position: absolute;
+        top: 0;
+        left: 0;
     }
-    .right {
-        fill:#C3002F;
-    }
-    .a {
-        fill:#FFFFFF;
+
+    .topMap {
+        position: absolute;
     }
 
     ion-scroll { white-space: nowrap; }
@@ -22,7 +22,7 @@ page-home {
         cursor: pointer;
         fill-opacity: 0;
         stroke: #000;
-        stroke-width: 2;
+        stroke-width: 1;
     }
 
 }
