@@ -8,7 +8,7 @@ export class Hex {
     private _rightX: number;
     private _topY: number;
     private _bottomY: number;
-    private _right: Array<number>;
+    private _right: Array<number>; //make a change
 
     svgPoints() {
         // return the points array as a string "30,15 23,28 8,28 0,15 8,2 23,2"
